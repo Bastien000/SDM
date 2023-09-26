@@ -10,19 +10,11 @@ import time
 import speech_recognition as sr
 
 rozpoznavac = sr.Recognizer()
-otazka=""
+otazka=" hello how are you"
 
-with sr.Microphone() as mikrofon:
-    print("Say something...")
-    audio = rozpoznavac.listen(mikrofon)
 
-try:
-    otazka = rozpoznavac.recognize_google(audio, language="en")  
-    print(f"Recognized: {otazka}")
-except sr.UnknownValueError:
-    print("Nerozpoznáno")
-except sr.RequestError as e:
-    print(f"Chyba při požadavku na rozpoznání: {e}")
+
+
 
 options = Options()
 #  options.add_experimental_option("detach", True)
@@ -61,34 +53,3 @@ for i in preklad:
 
 print(odpoved)
 
-
-
-from gtts import gTTS
-
-
-
-
-
-language = 'cs'
-
-
-myobj = gTTS(text=odpoved, lang=language, slow=False)
-
-
-myobj.save("welcome.mp3")
-
-
-import pygame
-
-pygame.init()
-
-pygame.mixer.init()
-
-zvuk = pygame.mixer.Sound("welcome.mp3")
-
-zvuk.play()
-
-delka = zvuk.get_length() * 1200
-pygame.time.wait(int(delka))
-
-pygame.mixer.quit()
