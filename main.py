@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 
 
-
+#sobek
 
 import speech_recognition as sr
 
