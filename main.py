@@ -7,11 +7,13 @@ import time
 import speech_recognition as sr
 
 
+
 #initializing library speech_recognition
 recognizer_variable = sr.Recognizer()
 
 #empty string variable
 question=""
+
 
 #setting up microphone and listening to user speaking
 with sr.Microphone() as microphone:
